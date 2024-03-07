@@ -276,3 +276,28 @@ exports.getStudentServices = async (req, res) => {
 
     }
 }
+
+exports.deleteStudentServices = async (req, res) => {
+    try {
+
+        const userId = req.query.userId;
+
+        const check = await Student.findByIdAndDelete(userId);
+
+        return {
+            status: true,
+            message: check ? `Data deleted successfully` : `Data not found`,
+            data: check ? check : {}
+        }
+
+    } catch (error) {
+        console.error('An error occurred add student services:', error);
+
+        return {
+            status: false,
+            message: error.message,
+            data: {}
+        }
+
+    }
+}

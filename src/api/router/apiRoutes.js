@@ -9,7 +9,7 @@ const { createUserSchema, signInUserSchema, editUserSchema, createStudentSchema,
 
 
 //controller
-const { createUserController, signInUserController, userListController, addStudentController, getStudentController, editStudentController } = require("../controllers/apiController");
+const { createUserController, signInUserController, userListController, addStudentController, getStudentController, editStudentController, deleteStudentController } = require("../controllers/apiController");
 
 
 //routes
@@ -26,6 +26,8 @@ router.post('/add-student-data', validatorResponse(addStudentSchema), addStudent
 router.post('/edit-student-data', validatorResponse(editStudentSchema), editStudentController);
 
 router.get('/get-student-data', getStudentController);
+
+router.get('/delete-student-data', deleteStudentController);
 
 
 module.exports = router;    

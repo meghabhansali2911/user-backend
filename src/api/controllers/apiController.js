@@ -1,4 +1,4 @@
-const { createUserServices, signInUserServices, userListServices, addStudentServices, getStudentServices, editStudentServices } = require("../services/apiServices");
+const { createUserServices, signInUserServices, userListServices, addStudentServices, getStudentServices, editStudentServices, deleteStudentServices } = require("../services/apiServices");
 
 exports.createUserController = async (req, res, next) => {
     try {
@@ -80,6 +80,18 @@ exports.getStudentController = async (req, res, next) => {
         console.log("Response parameters in get student API controller:--", data);
     } catch (error) {
         console.log("Error in get student API controller:--", error);
+        next(error);
+    }
+};
+
+exports.deleteStudentController = async (req, res, next) => {
+    try {
+        console.log("Request parameters in delete student API controller:--");
+        const data = await deleteStudentServices(req);
+        res.send(data);
+        console.log("Response parameters in delete student API controller:--", data);
+    } catch (error) {
+        console.log("Error in delete student API controller:--", error);
         next(error);
     }
 };
