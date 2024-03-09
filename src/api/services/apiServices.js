@@ -171,7 +171,7 @@ exports.addStudentServices = async (req, res) => {
     try {
         const { phone_number, email } = req.body;
 
-        const check = await User.findOne({
+        const check = await Student.findOne({
             $or: [
                 { email: email },
                 { phone_number: phone_number }
