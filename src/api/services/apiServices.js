@@ -129,14 +129,9 @@ exports.editUserServices = async (req, res) => {
         if (check) {
             const message = email === check.email ? "Email already exists" : "Phone number already exists";
             return {
-                status: true,
+                status: false,
                 message: message,
-                data: {
-                    user_id: check._id,
-                    user_name: check.user_name,
-                    phone_number: check.phone_number,
-                    email: check.email
-                }
+                data: {}
             }
         }
 
@@ -181,14 +176,9 @@ exports.addStudentServices = async (req, res) => {
         if (check) {
             const message = email === check.email ? "Email already exists" : "Phone number already exists";
             return {
-                status: true,
+                status: false,
                 message: message,
-                data: {
-                    user_id: check._id,
-                    user_name: check.user_name,
-                    phone_number: check.phone_number,
-                    email: check.email
-                }
+                data: {}
             }
         }
 
